@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:cv="http://xamarin.com/schemas/2014/forms/design"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="Xamarin_Prueba.views.WelcomePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <RadialGradientBrush Center="0.5, 0.5"
+                                     Radius="0.5">
+                    <GradientStop Color="White"
+                                  Offset="0.6"/>
+                    <GradientStop Color="red"
+                                  Offset="1.0"/>
+                </RadialGradientBrush>
+            </StackLayout.Background>
+            <cv:CarouselView ItemsSource="{Binding Clients}"
+                                 x:Name="DemoCarouselView" 
+                                 HeightRequest="150"
+                                 IndicatorView="indicator"
+                                 EmptyView="No data reachable">
+                <cv:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                                   Margin="10"
+                                   Padding="0"
+                                   BorderColor="DarkGray"
+                                   CornerRadius="5"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="CenterAndExpand">
+                                <StackLayout>
+                                    <ImageButton Source="{Binding Image}"
+                                                 Margin="0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </cv:CarouselView.ItemTemplate>
+            </cv:CarouselView>
+            <IndicatorView x:Name="indicator" 
+                           IndicatorColor="DarkGray"
+                           SelectedIndicatorColor="Red"
+                           HorizontalOptions="Center"
+                           Margin="0" Padding="0"/>
+            <Image Source="AudioramaCom.png"
+                   HeightRequest="150"
+                   Margin="0"/>
+            <StackLayout Orientation="Horizontal"
+                             Spacing="15"
+                         HorizontalOptions="Center">
+                <Frame Padding="0"
+                           CornerRadius="10">
+                    <ImageButton Source="BotonBestia.png"
+                                 HeightRequest="100"
+                                 Clicked="ImageButtonBestia_Clicked"/>
+                </Frame>
+                <Frame Padding="0"
+                           CornerRadius="10">
+                    <ImageButton Source="BotonSuper.png"
+                            HeightRequest="100"
+                                 Clicked="ImageButtonSuper_Clicked"/>
+                </Frame>
+                <Frame Padding="0"
+                           CornerRadius="10">
+                    <ImageButton Source="BotonMexicana.png"
+                            HeightRequest="100"
+                                 Clicked="ImageButtonMexicana_Clicked"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                             Spacing="15"
+                         HorizontalOptions="Center">
+                <Frame Padding="0"
+                           CornerRadius="10">
+                    <ImageButton Source="BotonVida.png"
+                            HeightRequest="100"
+                                 Clicked="ImageButtonVida_Clicked"/>
+                </Frame>
+                <Frame Padding="0"
+                           CornerRadius="10">
+                    <ImageButton Source="BotonBuenisima.png"
+                            HeightRequest="100"
+                                 Clicked="ImageButtonBuenisima_Clicked"/>
+                </Frame>
+            </StackLayout>
+            <Image Source="https://www.e-tek.com.mx/clients/e-tek.png"
+                   VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
