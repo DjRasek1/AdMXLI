@@ -16,7 +16,7 @@
                 </RadialGradientBrush>
             </StackLayout.Background>
             <cv:CarouselView ItemsSource="{Binding Clients}"
-                                 x:Name="DemoCarouselView" 
+                                 x:Name="DemoCarouselView"
                                  HeightRequest="150"
                                  IndicatorView="indicator"
                                  EmptyView="No data reachable">

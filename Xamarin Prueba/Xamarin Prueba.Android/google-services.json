@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "410289185369",
+    "project_id": "e-tek-519b9",
+    "storage_bucket": "e-tek-519b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410289185369:android:384c83b1f548935ad70748",
+        "android_client_info": {
+          "package_name": "com.etek.adMxli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410289185369-rq4139aqbuhr89509p8n2agdqolptram.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwGcLJuUtJac0WdSMpyMVoP9J4KYB5q_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410289185369-rq4139aqbuhr89509p8n2agdqolptram.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6405506640861482~6573037544"
+    }
+  ],
+  "configuration_version": "1"
+}
