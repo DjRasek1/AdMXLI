@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin_Prueba.models;
+using Xamarin_Prueba.viewModel;
+using System.Collections.ObjectModel;
 
 namespace Xamarin_Prueba.views
 {
@@ -17,27 +18,17 @@ namespace Xamarin_Prueba.views
         string urlBuenisima = "http://stream.radiorama.mx:80/stream/7/stream";
         #endregion
 
-        //public ClientViewModel clientView;
+
+        public ObservableCollection<Client> Clients { get; set; }
+
         public WelcomePage()
         {
-            //clientView = new ClientViewModel();
-            //ClientObject co = new ClientObject();
-            //callJson(co);
-            Client etek = new Client();
-            Client calm = new Client();
-            etek.Name = "e-Tek";
-            etek.Site = "https://www.e-tek.com.mx";
-            etek.Image = "https://www.e-tek.com.mx/clients/e-tek.png";
-            calm.Name = "calm";
-            calm.Site = "https://www.facebook.com/thecalmsalon";
-            calm.Image = "https://www.e-tek.com.mx/clients/calm.png";
+            #region Banners de Clientes
+
             InitializeComponent();
-            Clients = new ObservableCollection<Client>();
-            Clients.Add(etek);
-            Clients.Add(calm);
 
-
-            DemoCarouselView.ItemsSource = Clients;
+            Clients = new ClientViewModel().Clients;
+            BindingContext = new ClientViewModel();
 
             Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
             {
@@ -45,7 +36,7 @@ namespace Xamarin_Prueba.views
                 return true;
             }));
 
-            
+            #endregion
         }
 
         /*public async void callJson(ClientObject co)
@@ -53,9 +44,7 @@ namespace Xamarin_Prueba.views
             var url = "http://www.e-tek.com.mx/clients/clients.json";
             await clientView.GetClientsAsync(url, co);
         }*/
-
-        public ObservableCollection<Client> Clients { get; set; }
-
+        #region Botones de Estaciones
         private async void ImageButtonBestia_Clicked(object sender, EventArgs e)
         {
             Estacion bestia = new Estacion("Bestia", urlBestia, "LogoBestia.png");
@@ -85,5 +74,6 @@ namespace Xamarin_Prueba.views
             Estacion buenisima = new Estacion("Buenisima", urlBuenisima, "LogoBuenisima.png");
             await Navigation.PushAsync(new PlayerPage(buenisima));
         }
+        #endregion
     }
 }

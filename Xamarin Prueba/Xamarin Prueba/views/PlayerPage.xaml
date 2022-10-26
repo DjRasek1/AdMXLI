@@ -23,12 +23,6 @@
             <Button x:Name="play" Text="stop"
                     HorizontalOptions="CenterAndExpand"
                     Clicked="play_Clicked"/>
-            <!--Frame HasShadow="False" WidthRequest="1" HeightRequest="1" BackgroundColor="Transparent">
-                <xcl:MediaElement   x:Name="media"
-                                AutoPlay="true"
-                                Source="http://stream.radiorama.mx:80/stream/3/stream"
-                                HeightRequest="1" WidthRequest="1"/>
-            </Frame-->
             <Image Source="https://www.e-tek.com.mx/clients/e-tek.png"
                    VerticalOptions="EndAndExpand"/>
         </StackLayout>

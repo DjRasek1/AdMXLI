@@ -31,8 +31,12 @@
                                    HorizontalOptions="Center"
                                    VerticalOptions="CenterAndExpand">
                                 <StackLayout>
-                                    <ImageButton Source="{Binding Image}"
-                                                 Margin="0"/>
+                                    <Image Source="{Binding Image}"
+                                                 Margin="0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapCommand}" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
