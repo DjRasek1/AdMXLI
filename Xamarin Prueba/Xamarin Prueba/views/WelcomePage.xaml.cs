@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin_Prueba.models;
 using Xamarin_Prueba.viewModel;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Xamarin_Prueba.views
 {
@@ -18,33 +18,36 @@ namespace Xamarin_Prueba.views
         string urlBuenisima = "http://stream.radiorama.mx:80/stream/7/stream";
         #endregion
 
-
-        public ObservableCollection<Client> Clients { get; set; }
+        RestService _restService;
 
         public WelcomePage()
         {
+
             #region Banners de Clientes
 
+            _restService = new RestService();
+            OnLoad();
             InitializeComponent();
-
-            Clients = new ClientViewModel().Clients;
-            BindingContext = new ClientViewModel();
 
             Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
             {
-                DemoCarouselView.Position = (DemoCarouselView.Position + 1) % Clients.Count;
+                DemoCarouselView.Position = (DemoCarouselView.Position + 1) % indicator.Count;
+                Console.WriteLine("La posicion actual del carrusel es: " + DemoCarouselView.Position);
                 return true;
             }));
-
+            
             #endregion
         }
 
-        /*public async void callJson(ClientObject co)
+        async void OnLoad()
         {
-            var url = "http://www.e-tek.com.mx/clients/clients.json";
-            await clientView.GetClientsAsync(url, co);
-        }*/
+            List<ClientJson> clients = await _restService.GetClientsAsync(
+                Constants.EtekClientsEndpoint);
+            DemoCarouselView.ItemsSource = clients;
+        }
+
         #region Botones de Estaciones
+
         private async void ImageButtonBestia_Clicked(object sender, EventArgs e)
         {
             Estacion bestia = new Estacion("Bestia", urlBestia, "LogoBestia.png");
@@ -74,6 +77,7 @@ namespace Xamarin_Prueba.views
             Estacion buenisima = new Estacion("Buenisima", urlBuenisima, "LogoBuenisima.png");
             await Navigation.PushAsync(new PlayerPage(buenisima));
         }
+
         #endregion
     }
 }

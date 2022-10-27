@@ -2,9 +2,6 @@
 using System.Diagnostics;
 using Xamarin.Essentials;
 using System.Collections.ObjectModel;
-using System.Net;
-using System.IO;
-using Newtonsoft.Json;
 
 namespace Xamarin_Prueba.viewModel
 {
@@ -96,22 +93,6 @@ namespace Xamarin_Prueba.viewModel
                 }
             };
             
-            #endregion
-
-            #region Intentado llamar al archivo Json
-            /*
-            string url = @"http://www.e-tek.com.mx/clients/clients.json";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                var json = reader.ReadToEnd();
-                Console.Write(json);
-                ClientViewModel client = JsonConvert.DeserializeObject<ClientViewModel>(json);
-            }
-            */
-
             #endregion
         }
 
